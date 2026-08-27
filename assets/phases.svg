@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="phTitle phDesc">
+  <title id="phTitle">How Story Architect runs: ten phases, loaded by progressive disclosure</title>
+  <desc id="phDesc">Three stages of progressive disclosure laid out on one drafting panel. At startup, the agent sees only the skill's name and description, shown as a small title card on a folded stack of sheets. A story prompt triggers the skill, and the SKILL.md sheet unrolls with the ten phases listed in order, a cursor running down them one by one, each feeding the next. As each phase runs, a tie line pulls the reference file beside it from a rack of eleven on the right, which light up on demand, with two references resting outside the phase order. The run ends at the label blueprint first, then the finished prose.</desc>
+
+  <defs>
+    <clipPath id="phFrame"><rect width="1200" height="520" rx="14"/></clipPath>
+    <clipPath id="phSheet"><rect class="unroll" x="356" y="104" width="400" height="368"/></clipPath>
+    <pattern id="phGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#152340" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <style>
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }
+
+    .fade { animation: fadeIn 0.5s ease-out both; }
+    .rise { animation: riseIn 0.6s ease-out both; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes riseIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .e1 { animation-delay: 0.2s; } .e2 { animation-delay: 0.5s; } .e3 { animation-delay: 1.0s; }
+    .e4 { animation-delay: 1.3s; } .e5 { animation-delay: 2.5s; } .e6 { animation-delay: 4.0s; }
+
+    .unroll { animation: unroll 0.9s ease-out 1.7s both; }
+    @keyframes unroll { from { height: 0px; } to { height: 368px; } }
+
+    .march { stroke-dasharray: 3 6; animation: march 0.9s linear infinite; }
+    @keyframes march { to { stroke-dashoffset: -9; } }
+
+    .cursor { animation: walk 9s steps(9, end) 2.9s both, cursorLife 10.9s linear 2.7s both; }
+    @keyframes walk { from { transform: translateY(0); } to { transform: translateY(243px); } }
+    @keyframes cursorLife { 0% { opacity: 0; } 3% { opacity: 1; } 95% { opacity: 1; } 100% { opacity: 0; } }
+
+    .pName { animation: nameOn 0.4s ease-out both; }
+    @keyframes nameOn { to { fill: #EAF0FA; } }
+    .pNum { animation: chipOn 0.4s ease-out both; }
+    @keyframes chipOn { to { stroke: #58A6FF; fill: #14263F; } }
+    .pNumT { animation: numOn 0.4s ease-out both; }
+    @keyframes numOn { to { fill: #58A6FF; } }
+    .t1 { animation-delay: 2.9s; } .t2 { animation-delay: 3.9s; } .t3 { animation-delay: 4.9s; }
+    .t4 { animation-delay: 5.9s; } .t5 { animation-delay: 6.9s; } .t6 { animation-delay: 7.9s; }
+    .t7 { animation-delay: 8.9s; } .t8 { animation-delay: 9.9s; } .t9 { animation-delay: 10.9s; }
+    .t10 { animation-delay: 11.9s; }
+
+    .tie { stroke-dasharray: 1; animation: tieOn 1.4s ease-out both; }
+    @keyframes tieOn { 0% { stroke-dashoffset: 1; opacity: 0.9; } 55% { stroke-dashoffset: 0; opacity: 0.9; } 100% { stroke-dashoffset: 0; opacity: 0.35; } }
+    .q1 { animation-delay: 3.0s; } .q2 { animation-delay: 4.0s; } .q3 { animation-delay: 5.0s; }
+    .q4 { animation-delay: 6.0s; } .q5 { animation-delay: 7.0s; } .q6 { animation-delay: 8.0s; }
+    .q7 { animation-delay: 9.0s; } .q8 { animation-delay: 10.0s; } .q9 { animation-delay: 11.0s; }
+
+    .fBox { animation: fileOn 0.5s ease-out both; }
+    @keyframes fileOn { to { stroke: #58A6FF; } }
+    .fDot { animation: dotOn 0.5s ease-out both; }
+    @keyframes dotOn { to { fill: #58A6FF; } }
+    .fName { animation: fnOn 0.5s ease-out both; }
+    @keyframes fnOn { to { fill: #EAF0FA; } }
+    .q10 { animation-delay: 12.0s; }
+    .r2 { animation-delay: 3.3s; }
+    .r3 { animation-delay: 4.3s; } .r4 { animation-delay: 5.3s; } .r5 { animation-delay: 6.3s; }
+    .r6 { animation-delay: 7.3s; } .r7 { animation-delay: 8.3s; } .r8 { animation-delay: 9.3s; }
+    .r9 { animation-delay: 10.3s; } .r10 { animation-delay: 11.3s; }
+    .end { animation-delay: 13.2s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; animation-delay: 0s !important; }
+    }
+  </style>
+
+  <g clip-path="url(#phFrame)">
+    <rect width="1200" height="520" fill="#0B1220"/>
+    <rect width="1200" height="520" fill="url(#phGrid)" opacity="0.5"/>
+
+    <text class="mono" x="40" y="44" font-size="13" fill="#5E7096">how it works &#183; progressive disclosure in three stages</text>
+    <text class="mono" x="1160" y="44" font-size="13" fill="#5E7096" text-anchor="end">markdown only &#183; no code, no dependencies</text>
+
+    <!-- stage 1: the folded skill, name and description only -->
+    <text class="sans rise" x="56" y="88" font-size="16" font-weight="600" fill="#EAF0FA">1 &#183; at startup</text>
+    <g class="rise e1">
+      <rect x="80" y="120" width="238" height="116" rx="8" fill="#0C1526" stroke="#1B2C4C"/>
+      <rect x="68" y="112" width="238" height="116" rx="8" fill="#0C1526" stroke="#1B2C4C"/>
+      <rect x="56" y="104" width="238" height="116" rx="8" fill="#101D36" stroke="#25395E" stroke-width="1.5"/>
+      <text class="mono" x="76" y="134" font-size="16" font-weight="600" fill="#EAF0FA">story-architect</text>
+      <rect x="76" y="150" width="182" height="8" rx="4" fill="#1B2C4C"/>
+      <rect x="76" y="164" width="132" height="8" rx="4" fill="#1B2C4C"/>
+      <text class="mono" x="76" y="204" font-size="12" fill="#5E7096">a 28,000 word framework</text>
+    </g>
+    <g class="mono fade e2" font-size="12.5" fill="#5E7096">
+      <text x="56" y="252">the agent sees only the</text>
+      <text x="56" y="270">skill's name and description</text>
+    </g>
+
+    <!-- the trigger -->
+    <g class="fade e3">
+      <rect x="56" y="290" width="134" height="30" rx="15" fill="#12233F" stroke="#58A6FF" stroke-opacity="0.55"/>
+      <text class="mono" x="123" y="309" font-size="13" fill="#58A6FF" text-anchor="middle">a story prompt</text>
+    </g>
+    <g class="fade e4">
+      <path class="march" d="M190 305C258 305 292 148 354 142" fill="none" stroke="#58A6FF" stroke-width="1.5" opacity="0.8"/>
+      <polygon points="350,136 350,148 360,142" fill="#58A6FF"/>
+    </g>
+
+    <!-- stage 2: SKILL.md unrolls, the ten phases run in order -->
+    <text class="sans rise e1" x="356" y="88" font-size="16" font-weight="600" fill="#EAF0FA">2 &#183; when a task matches</text>
+    <g clip-path="url(#phSheet)">
+      <rect x="356" y="104" width="400" height="368" rx="10" fill="#0E1A30" stroke="#25395E" stroke-width="1.5"/>
+      <text class="mono" x="380" y="136" font-size="17" font-weight="600" fill="#EAF0FA">SKILL.md</text>
+      <g class="mono" font-size="12.5" fill="#9DB0CE">
+        <text x="380" y="158">the ten phases, run in order,</text>
+        <text x="380" y="174">each one feeding the next</text>
+      </g>
+      <line x1="368" y1="186" x2="744" y2="186" stroke="#1B2C4C"/>
+      <line class="march" x1="389" y1="190" x2="389" y2="468" stroke="#223559" stroke-width="1.5"/>
+
+      <g class="cursor">
+        <rect x="372" y="197" width="376" height="25" rx="6" fill="#58A6FF" opacity="0.09"/>
+        <rect x="372" y="197" width="3" height="25" fill="#58A6FF" opacity="0.8"/>
+      </g>
+
+      <g font-size="12.5" text-anchor="middle">
+        <rect class="pNum t1" x="378" y="199" width="22" height="20" rx="5" fill="#0F1B31" stroke="#3A517E" stroke-width="1.2"/><text class="mono pNumT t1" x="389" y="213.5" fill="#5E7096">1</text>
+        <rect class="pNum t2" x="378" y="226" width="22" height="20" rx="5" fill="#0F1B31" stroke="#3A517E" stroke-width="1.2"/><text class="mono pNumT t2" x="389" y="240.5" fill="#5E7096">2</text>
+        <rect class="pNum t3" x="378" y="253" width="22" height="20" rx="5" fill="#0F1B31" stroke="#3A517E" stroke-width="1.2"/><text class="mono pNumT t3" x="389" y="267.5" fill="#5E7096">3</text>
+        <rect class="pNum t4" x="378" y="280" width="22" height="20" rx="5" fill="#0F1B31" stroke="#3A517E" stroke-width="1.2"/><text class="mono pNumT t4" x="389" y="294.5" fill="#5E7096">4</text>
+        <rect class="pNum t5" x="378" y="307" width="22" height="20" rx="5" fill="#0F1B31" stroke="#3A517E" stroke-width="1.2"/><text class="mono pNumT t5" x="389" y="321.5" fill="#5E7096">5</text>
+        <rect class="pNum t6" x="378" y="334" width="22" height="20" rx="5" fill="#0F1B31" stroke="#3A517E" stroke-width="1.2"/><text class="mono pNumT t6" x="389" y="348.5" fill="#5E7096">6</text>
+        <rect class="pNum t7" x="378" y="361" width="22" height="20" rx="5" fill="#0F1B31" stroke="#3A517E" stroke-width="1.2"/><text class="mono pNumT t7" x="389" y="375.5" fill="#5E7096">7</text>
+        <rect class="pNum t8" x="378" y="388" width="22" height="20" rx="5" fill="#0F1B31" stroke="#3A517E" stroke-width="1.2"/><text class="mono pNumT t8" x="389" y="402.5" fill="#5E7096">8</text>
+        <rect class="pNum t9" x="378" y="415" width="22" height="20" rx="5" fill="#0F1B31" stroke="#3A517E" stroke-width="1.2"/><text class="mono pNumT t9" x="389" y="429.5" fill="#5E7096">9</text>
+        <rect class="pNum t10" x="378" y="442" width="22" height="20" rx="5" fill="#0F1B31" stroke="#3A517E" stroke-width="1.2"/><text class="mono pNumT t10" x="389" y="456.5" fill="#5E7096">10</text>
+      </g>
+      <g class="sans" font-size="16">
+        <text class="pName t1" x="410" y="215" fill="#9DB0CE">Premise and designing principle</text>
+        <text class="pName t2" x="410" y="242" fill="#9DB0CE">Seven key structure steps</text>
+        <text class="pName t3" x="410" y="269" fill="#9DB0CE">Character web</text>
+        <text class="pName t4" x="410" y="296" fill="#9DB0CE">Moral argument</text>
+        <text class="pName t5" x="410" y="323" fill="#9DB0CE">Story world</text>
+        <text class="pName t6" x="410" y="350" fill="#9DB0CE">Symbol web</text>
+        <text class="pName t7" x="410" y="377" fill="#9DB0CE">22-step organic plot</text>
+        <text class="pName t8" x="410" y="404" fill="#9DB0CE">Scene weave</text>
+        <text class="pName t9" x="410" y="431" fill="#9DB0CE">Scene construction and dialogue</text>
+        <text class="pName t10" x="410" y="458" fill="#9DB0CE">Final polish</text>
+      </g>
+    </g>
+
+    <!-- ties: a phase calls, a reference file loads -->
+    <g fill="none" stroke="#58A6FF" stroke-width="1.5">
+      <path class="tie q1" pathLength="1" d="M748 209.5C776 209.5 784 203 812 203"/>
+      <path class="tie q2" pathLength="1" d="M748 236.5C776 236.5 784 233 812 233"/>
+      <path class="tie q3" pathLength="1" d="M748 263.5C776 263.5 784 263 812 263"/>
+      <path class="tie q4" pathLength="1" d="M748 290.5C776 290.5 784 293 812 293"/>
+      <path class="tie q5" pathLength="1" d="M748 317.5C776 317.5 784 323 812 323"/>
+      <path class="tie q6" pathLength="1" d="M748 344.5C776 344.5 784 353 812 353"/>
+      <path class="tie q7" pathLength="1" d="M748 371.5C776 371.5 784 383 812 383"/>
+      <path class="tie q8" pathLength="1" d="M748 398.5C776 398.5 784 413 812 413"/>
+      <path class="tie q9" pathLength="1" d="M748 425.5C776 425.5 784 443 812 443"/>
+      <path class="tie q10" pathLength="1" d="M748 452.5C776 452.5 784 449 812 447"/>
+    </g>
+
+    <!-- stage 3: the reference rack, eleven files -->
+    <text class="sans rise e1" x="816" y="88" font-size="16" font-weight="600" fill="#EAF0FA">3 &#183; when a phase calls for it</text>
+    <text class="mono fade e5" x="816" y="112" font-size="13" fill="#58A6FF">11 reference files that load on demand</text>
+
+    <g class="fade e5">
+      <g fill="#0F1B31" stroke="#1E3054" stroke-width="1.2">
+        <rect x="816" y="130" width="310" height="26" rx="6"/>
+        <rect x="816" y="160" width="310" height="26" rx="6"/>
+        <rect class="fBox r2" x="816" y="190" width="310" height="26" rx="6"/>
+        <rect class="fBox r3" x="816" y="220" width="310" height="26" rx="6"/>
+        <rect class="fBox r4" x="816" y="250" width="310" height="26" rx="6"/>
+        <rect class="fBox r5" x="816" y="280" width="310" height="26" rx="6"/>
+        <rect class="fBox r6" x="816" y="310" width="310" height="26" rx="6"/>
+        <rect class="fBox r7" x="816" y="340" width="310" height="26" rx="6"/>
+        <rect class="fBox r8" x="816" y="370" width="310" height="26" rx="6"/>
+        <rect class="fBox r9" x="816" y="400" width="310" height="26" rx="6"/>
+        <rect class="fBox r10" x="816" y="430" width="310" height="26" rx="6"/>
+      </g>
+      <g fill="#22345A">
+        <circle cx="832" cy="143" r="3" fill="none" stroke="#3A517E"/>
+        <circle cx="832" cy="173" r="3" fill="none" stroke="#3A517E"/>
+        <circle class="fDot r2" cx="832" cy="203" r="3"/>
+        <circle class="fDot r3" cx="832" cy="233" r="3"/>
+        <circle class="fDot r4" cx="832" cy="263" r="3"/>
+        <circle class="fDot r5" cx="832" cy="293" r="3"/>
+        <circle class="fDot r6" cx="832" cy="323" r="3"/>
+        <circle class="fDot r7" cx="832" cy="353" r="3"/>
+        <circle class="fDot r8" cx="832" cy="383" r="3"/>
+        <circle class="fDot r9" cx="832" cy="413" r="3"/>
+        <circle class="fDot r10" cx="832" cy="443" r="3"/>
+      </g>
+      <g class="mono" font-size="12.5" fill="#9DB0CE">
+        <text x="844" y="147.5">truby-complete-framework.md</text>
+        <text x="844" y="177.5">ch01_story_space.md</text>
+        <text class="fName r2" x="844" y="207.5">ch02_premise.md</text>
+        <text class="fName r3" x="844" y="237.5">ch03_seven_steps.md</text>
+        <text class="fName r4" x="844" y="267.5">ch04_character.md</text>
+        <text class="fName r5" x="844" y="297.5">ch05_moral_argument.md</text>
+        <text class="fName r6" x="844" y="327.5">ch06_story_world.md</text>
+        <text class="fName r7" x="844" y="357.5">ch07_symbol_web.md</text>
+        <text class="fName r8" x="844" y="387.5">ch08_plot.md</text>
+        <text class="fName r9" x="844" y="417.5">ch09_scene_weave.md</text>
+        <text class="fName r10" x="844" y="447.5">ch10_scene_construction.md</text>
+      </g>
+      <text class="mono" x="816" y="476" font-size="12.5" fill="#5E7096">two references sit outside the phase order</text>
+    </g>
+
+    <!-- exit -->
+    <text class="mono fade e6" x="56" y="500" font-size="12.5" fill="#5E7096">the agent opens the reference file beside it</text>
+    <g class="fade end">
+      <polygon points="430,489 430,501 439,495" fill="#58A6FF"/>
+      <text class="mono" x="448" y="500" font-size="13" fill="#EAF0FA">blueprint first, then the finished prose</text>
+    </g>
+  </g>
+
+  <rect x="0.5" y="0.5" width="1199" height="519" rx="14" fill="none" stroke="#25395E" stroke-width="1"/>
+</svg>

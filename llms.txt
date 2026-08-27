@@ -1,0 +1,55 @@
+# Story Architect
+
+> Story Architect is an Agent Skill that turns a one-line prompt into a structured story: a blueprint first, then the finished prose. It walks ten phases in order, covering premise and designing principle, the seven key structure steps, a character web with four-corner opposition, the moral argument, the story world, the symbol web, a 22-step organic plot, the scene weave, scene construction with three-track dialogue, and a final pass on the ending. It's Markdown only, roughly 28,000 words of workflow and reference across one SKILL.md and eleven reference files that load on demand, with no code, no dependencies, and no API keys. It's built on the open Agent Skills standard, so it runs in Claude Code, Codex, Cursor, and other skills-compatible agents. It's an independent implementation of structural principles associated with John Truby's "The Anatomy of Story", not affiliated with or endorsed by him, and its reference files are original summaries of the framework rather than reproductions of the book's text. It doesn't edit, format, or publish your manuscript, and it's no substitute for reading the book itself.
+
+Install it by cloning the repository into your agent's skills directory (~/.claude/skills/story-architect for Claude Code, ~/.agents/skills/story-architect for Codex, Cursor, and Gemini CLI), then ask for a story in plain language, for example "write a literary sci-fi short story about a memory archivist who discovers his own childhood has been edited". A default run returns a story blueprint followed by a complete story of roughly 3,000 to 6,000 words, and adapts to a novella, screenplay, or outline on request. Output quality depends on the model running it and has not been benchmarked.
+
+## Docs
+
+- [README](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/README.md): overview, sample output, install, phase table, comparison, evidence, and FAQ
+- [SKILL.md](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/SKILL.md): the workflow the agent reads, with all ten phases, the output format, and the trigger conditions
+- [LICENSE](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/LICENSE): MIT license text
+
+## The ten phases
+
+- [Phase 1, premise and designing principle](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch02_premise.md): one-sentence idea, wish plus action plus changed person, designing principle, central moral choice, genre
+- [Phase 2, seven key structure steps](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch03_seven_steps.md): weakness and need, desire, opponent, plan, battle, self-revelation, new equilibrium
+- [Phase 3, character web](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch04_character.md): hero, necessary opponent, allies, fake-ally opponent, four-corner opposition, change types
+- [Phase 4, moral argument](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch05_moral_argument.md): theme line, moral decisions, and the five moral argument variants
+- [Phase 5, story world](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch06_story_world.md): arena, visual oppositions, natural and man-made spaces, hero and world patterns
+- [Phase 6, symbol web](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch07_symbol_web.md): symbol line, story symbol, symbolic characters and objects, refer and repeat
+- [Phase 7, 22-step organic plot](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch08_plot.md): the full 22-step sequence, opening types, revelation schedule, subplot
+- [Phase 8, scene weave](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch09_scene_weave.md): one-line scene list, structural ordering, crosscutting, genre beats
+- [Phase 9, scene construction and dialogue](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch10_scene_construction.md): scene as ministory, the nine-step scene sequence, three-track symphonic dialogue
+- [Phase 10, final polish](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch10_scene_construction.md): new equilibrium, thematic revelation, false endings, and the never-ending story
+
+## Reference files
+
+- [truby-complete-framework](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/truby-complete-framework.md): the condensed complete framework, with every pattern, list, and variant in one file
+- [ch01_story_space](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch01_story_space.md): story as an organic body, the dramatic code, five movement shapes, the writing process
+- [ch02_premise](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch02_premise.md): the ten-step premise technique, designing principle, audience appeal
+- [ch03_seven_steps](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch03_seven_steps.md): the seven key structure steps in full, psychological need against moral need
+- [ch04_character](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch04_character.md): character web, four-corner opposition, archetypes, change types, double reversal
+- [ch05_moral_argument](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch05_moral_argument.md): theme against subject, theme line, moral argument through structure
+- [ch06_story_world](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch06_story_world.md): world as character expression, arena, settings, hero and world patterns
+- [ch07_symbol_web](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch07_symbol_web.md): refer and repeat, symbol web, symbolic characters, objects, actions, reversal
+- [ch08_plot](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch08_plot.md): organic plot, all 22 steps detailed, iceberg opponent, revelations
+- [ch09_scene_weave](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch09_scene_weave.md): storyteller device, scene weave, crosscutting, multistrand, genre scene sequences
+- [ch10_scene_construction](https://raw.githubusercontent.com/NeuraCerebra-AI/story-architect-skill/HEAD/references/ch10_scene_construction.md): scene as ministory, nine-step sequence, symphonic dialogue, never-ending story
+
+## Key facts
+
+- Repository: https://github.com/NeuraCerebra-AI/story-architect-skill
+- License: MIT
+- Version: 1.0.0
+- Type: Agent Skill (one SKILL.md plus eleven reference files), built on the open Agent Skills standard at https://agentskills.io
+- Platforms: Claude Code, Codex, Cursor, VS Code and GitHub Copilot, Gemini CLI, Goose, Amp, Kiro, and other clients that implement the Agent Skills standard
+- Install: clone into ~/.claude/skills/story-architect for Claude Code, or ~/.agents/skills/story-architect for Codex, Cursor, and Gemini CLI, then restart the agent
+- Trigger: ask for a story, screenplay, novella, or narrative in plain language, or name the skill directly
+- Output: a story blueprint (premise, designing principle, seven key steps, character web, moral argument, story world, symbol web, 22-step plot, scene weave), then the complete story, plus an optional structural-notes appendix covering the symbols used, moral argument tracking, and character arc milestones
+- Default length: roughly 3,000 to 6,000 words unless another length or form is requested
+- Loading: progressive disclosure, so only the name and description sit in context until the skill is triggered, and reference files load only when a phase calls for them
+- Dependencies: none, and no API keys or external services
+- Attribution: independently authored, not affiliated with, endorsed by, or sponsored by John Truby or his publisher, with reference files that are original summaries of the framework rather than reproductions of the book's text
+- Boundaries: it's not a manuscript editor, formatter, exporter, or publishing tool, it's not a substitute for the book, and it's framework-specific rather than neutral across story frameworks
+- Not claimed: no benchmark of output quality, and results vary with the model running the skill
