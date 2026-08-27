@@ -25,14 +25,14 @@ Install it, then say `Write a story about a lighthouse keeper`.
 
 ## 🩻 The problem it's built for
 
-Ask any model for a story and you get prose that reads well sentence by sentence and goes slack underneath.
+Prompt a model for a story and you get prose that reads well sentence by sentence and goes slack underneath. Post-training is measurably part of why: it compresses themes toward uniformity, strong emotion toward neutrality, and style toward sameness, most of all against literary fiction ([Li et al., 2026](https://arxiv.org/abs/2605.27878)).
 
-- **Flat arcs.** The middle goes even, nothing tightens, and the ending arrives because the word count did ([Tian et al., EMNLP 2024](https://arxiv.org/abs/2407.13248)).
-- **Costless heroes.** The hero has a quirk instead of a moral weakness. Nobody is hurt by what they do, so nothing they learn at the end costs them anything.
-- **Obstacle opponents.** The antagonist blocks the goal rather than attacking the one flaw the hero has to lose, so the conflict never becomes personal.
+- **Flat arcs.** The middle goes even and nothing tightens. Model story arcs are more poorly paced than human ones, homogeneously positive and short on suspense ([Tian et al., EMNLP 2024](https://arxiv.org/abs/2407.13248)).
+- **Costless heroes.** Safety-aligned models get steadily worse at voicing a character as that character's morality drops, trading nuanced malevolence for surface aggression ([Yi et al., 2025](https://arxiv.org/abs/2511.04962)). A hero written that way has a quirk, not a moral weakness, so nothing they learn costs them anything.
+- **Obstacle opponents.** The antagonist blocks the goal instead of attacking the one flaw the hero has to lose, so the conflict never becomes personal.
 - **Stated themes.** The theme arrives in a line of dialogue instead of being argued through structure, and the ending explains itself.
 
-Structure is the part a prompt can supply and the model won't invent on its own.
+The last two bullets are this framework's diagnosis rather than measured findings, and it's opinionated about the cure: a hero who hurts someone, and an opponent built to attack that specific flaw. Structure is the part a prompt can supply and the part a model flattens when you don't.
 
 ## 🧱 What a run produces
 
@@ -201,6 +201,8 @@ The research on machine storytelling keeps landing in the same place: models wri
 A 2024 study of language-model narratives built a framework around story arcs, turning points, and affective dimensions, and found that while human stories are suspenseful and structurally diverse, model stories are "homogeneously positive and lack tension." The same paper reports that explicitly integrating those discourse features into generation improved storytelling by over 40% on diversity, suspense, and arousal ([Tian et al., EMNLP 2024](https://arxiv.org/abs/2407.13248)). That figure comes from the researchers' own method, not from this skill, which has not been benchmarked.
 
 The gap it's closing is wide. Evaluated with the Torrance Test of Creative Writing, a 14-test rubric applied by 10 expert writers to 48 stories, model-written stories passed 3 to 10 times fewer tests than stories by professional authors, with fluency the dimension they lagged on least, and originality, flexibility, and elaboration the ones they lagged on most ([Chakrabarty et al., CHI 2024](https://arxiv.org/abs/2309.14556)).
+
+That gap is not fixed in the model, and the same lead author measured its edges two years later. Experts preferred human writing 82.7% of the time when the model was prompted in context, and the preference reversed to 62% for the model once it was fine-tuned on an author's complete works ([Chakrabarty and Dhillon, 2026](https://arxiv.org/abs/2601.18353)). That places this skill exactly: it works on the prompting side of that line, which is where the gap is measured and where most people actually write.
 
 There's a second-order cost too. In a Science Advances study, writers given generative-AI story ideas produced work rated more creative, better written, and more enjoyable, especially the less creative writers, but their stories also came out more similar to each other than unaided writers' stories did ([Doshi and Hauser, 2024](https://doi.org/10.1126/sciadv.adn5290)). A framework that starts from a designing principle unique to one story, then builds character, world, and symbol out of it, is aimed at that convergence, though nothing here measures how well it resists it.
 
